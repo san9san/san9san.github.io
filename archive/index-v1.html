@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUKITORU｜人間関係専門カウンセリング</title>
+<meta name="description" content="人間関係で疲れ切ってしまったあなたへ。感情ではなく「構造」から関係を整える、人間関係専門のカウンセリングです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2E3A4E; --ink-soft:#66738A; --ink-faint:#8FA3BC;
+  --mist:#F4F9FC; --glass:rgba(255,255,255,0.5); --glass-line:rgba(255,255,255,0.75);
+  --accent:#5E82B8; --accent-deep:#3E5E93;
+  --serif:'Shippori Mincho',serif; --sans:'Zen Kaku Gothic New',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);font-weight:400;color:var(--ink);background:#F6F9FC;line-height:2.1;letter-spacing:0.04em;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+.header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:rgba(255,255,255,0.55);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.6);}
+.logo{font-family:var(--serif);font-size:15px;letter-spacing:0.3em;color:var(--ink);}
+.logo small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:0.2em;color:var(--ink-faint);}
+.nav{display:flex;gap:28px;align-items:center;font-size:13px;letter-spacing:0.15em;color:var(--ink-soft);}
+.nav a:hover{color:var(--accent-deep);}
+.nav .cta{background:rgba(94,130,184,0.9);color:#fff;padding:11px 26px;font-weight:500;border-radius:999px;transition:background .3s;}
+.nav .cta:hover{background:var(--accent-deep);color:#fff;}
+@media(max-width:720px){.nav a:not(.cta){display:none;}}
+
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1476673160081-cf065607f449?w=2000&q=80') center/cover;}
+.hero-veil{position:absolute;inset:0;background:linear-gradient(165deg,rgba(244,249,252,0.92) 0%,rgba(232,241,248,0.72) 45%,rgba(214,231,244,0.45) 100%);}
+.orb{position:absolute;border-radius:50%;pointer-events:none;}
+.orb1{top:-8%;left:-6%;width:44vw;height:44vw;background:radial-gradient(circle,rgba(168,208,238,0.5) 0%,rgba(168,208,238,0) 70%);animation:drift 14s ease-in-out infinite alternate;}
+.orb2{bottom:-10%;right:-8%;width:38vw;height:38vw;background:radial-gradient(circle,rgba(196,181,235,0.4) 0%,rgba(196,181,235,0) 70%);animation:drift 18s ease-in-out infinite alternate-reverse;}
+@keyframes drift{from{transform:translate(0,0);}to{transform:translate(4vw,3vh);}}
+.hero-inner{position:relative;text-align:center;padding:120px 24px 80px;max-width:760px;}
+.hero-tag{font-size:12px;letter-spacing:0.45em;color:var(--accent-deep);margin-bottom:28px;}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,5.4vw,52px);letter-spacing:0.18em;line-height:2;margin-bottom:28px;}
+.hero-lead{font-size:clamp(15px,1.9vw,17px);color:var(--ink-soft);line-height:2.4;margin-bottom:44px;}
+.btn{display:inline-block;font-size:15px;font-weight:500;letter-spacing:0.18em;padding:19px 54px;border-radius:999px;transition:all .3s;}
+.btn-solid{background:rgba(94,130,184,0.95);color:#fff;box-shadow:0 10px 30px rgba(94,130,184,0.35);animation:breathe 3.6s ease-in-out infinite;}
+.btn-solid::after{content:'\2192';display:inline-block;margin-left:12px;transition:transform .3s;}
+.btn-solid:hover::after{transform:translateX(6px);}
+@keyframes breathe{0%,100%{box-shadow:0 10px 30px rgba(94,130,184,0.35);}50%{box-shadow:0 14px 46px rgba(94,130,184,0.6);}}
+.btn-solid:hover{background:var(--accent-deep);transform:translateY(-2px);}
+.btn-glass{background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--glass-line);color:var(--ink);margin-left:14px;}
+.btn-glass:hover{background:rgba(255,255,255,0.75);}
+.cta-note{margin-top:20px;font-size:13px;color:var(--ink-soft);letter-spacing:0.12em;}
+@media(max-width:600px){.btn-glass{margin-left:0;margin-top:14px;}}
+@media(max-width:700px){.scroll-hint{display:none;}.hero-lead br{display:none;}}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:0.4em;color:var(--ink-faint);writing-mode:vertical-rl;}
+.scroll-hint::after{content:'';display:block;width:1px;height:44px;background:linear-gradient(var(--ink-faint),transparent);margin:10px auto 0;}
+
+section{position:relative;}
+.wrap{max-width:1040px;margin:0 auto;padding:110px 5vw;}
+.sec-tag{text-align:center;font-size:11px;letter-spacing:0.45em;color:var(--accent);margin-bottom:14px;}
+.sec-title{text-align:center;font-family:var(--serif);font-weight:400;font-size:clamp(22px,3.4vw,30px);letter-spacing:0.14em;margin-bottom:20px;}
+.sec-lead{text-align:center;font-size:15px;color:var(--ink-soft);margin-bottom:64px;}
+
+.check-grid{display:grid;grid-template-columns:minmax(260px,340px) 1fr;gap:56px;align-items:center;}
+@media(max-width:820px){.check-grid{grid-template-columns:1fr;}}
+.check-illust{width:100%;height:auto;}
+.check-list{display:flex;flex-direction:column;gap:18px;}
+.check-item{display:flex;gap:16px;align-items:flex-start;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--glass-line);border-radius:18px;padding:20px 26px;box-shadow:0 8px 32px rgba(120,150,190,0.10);}
+.check-item svg{flex-shrink:0;margin-top:8px;}
+.check-item p{font-size:15px;line-height:2;}
+.check-note{margin-top:36px;text-align:center;font-size:15px;color:var(--ink-soft);}
+.check-note strong{font-weight:500;color:var(--accent-deep);}
+
+.quote{position:relative;min-height:420px;display:flex;align-items:center;justify-content:center;background:url('https://images.unsplash.com/photo-1487621167305-5d248087c724?w=2000&q=75') center/cover fixed;}
+@media(max-width:820px){.quote{background-attachment:scroll;}}
+.quote-veil{position:absolute;inset:0;background:rgba(233,240,248,0.55);}
+.quote-card{position:relative;text-align:center;padding:0 24px;}
+.quote-card p{font-family:var(--serif);font-size:clamp(18px,3vw,26px);letter-spacing:0.16em;line-height:2.4;color:var(--ink);text-shadow:0 1px 12px rgba(255,255,255,0.8);}
+
+.bg-tint{background:linear-gradient(180deg,#F6F9FC 0%,#EDF3F9 55%,#F3F1FA 100%);}
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px;}
+.feature{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--glass-line);border-radius:22px;padding:34px 20px;text-align:center;box-shadow:0 8px 32px rgba(120,150,190,0.10);transition:transform .35s;}
+.feature:hover{transform:translateY(-6px);}
+.feature .num{font-size:11px;letter-spacing:0.3em;color:var(--ink-faint);margin-bottom:14px;}
+.feature h3{font-family:var(--serif);font-weight:500;font-size:16px;letter-spacing:0.05em;margin-bottom:14px;line-height:1.9;}
+.feature p{font-size:14px;color:var(--ink-soft);text-align:left;}
+.feature svg{margin:0 auto 18px;}
+
+.ba-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:18px;align-items:center;max-width:880px;margin:0 auto;}
+@media(max-width:720px){.ba-grid{grid-template-columns:1fr;}.ba-arrow{transform:rotate(90deg);margin:6px auto;}}
+.ba-col{border-radius:22px;padding:36px 32px;}
+.ba-before{background:rgba(210,220,232,0.4);border:1px solid rgba(255,255,255,0.6);}
+.ba-after{background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--glass-line);box-shadow:0 8px 32px rgba(120,150,190,0.14);}
+.ba-col h3{text-align:center;font-size:12px;letter-spacing:0.4em;margin-bottom:22px;}
+.ba-before h3{color:var(--ink-faint);}
+.ba-after h3{color:var(--accent-deep);}
+.ba-col li{list-style:none;font-size:15px;padding:10px 0;border-bottom:1px dashed rgba(140,160,190,0.3);display:flex;gap:12px;align-items:center;}
+.ba-col li:last-child{border-bottom:none;}
+.ba-before li{color:var(--ink-soft);}
+.ba-arrow{text-align:center;color:var(--accent);}
+
+.flow{counter-reset:step;}
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;align-items:stretch;}
+.plan{position:relative;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--glass-line);border-radius:22px;padding:40px 30px 34px;box-shadow:0 8px 32px rgba(120,150,190,0.10);display:flex;flex-direction:column;}
+.plan.em{border:1.5px solid rgba(94,130,184,0.55);}
+.plan .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:11px;letter-spacing:0.2em;padding:5px 18px;border-radius:999px;white-space:nowrap;}
+.plan .step{font-size:11px;letter-spacing:0.3em;color:var(--ink-faint);text-align:center;margin-bottom:10px;}
+.plan h3{font-family:var(--serif);font-weight:500;font-size:19px;text-align:center;letter-spacing:0.08em;margin-bottom:6px;}
+.plan .sub{text-align:center;font-size:12px;color:var(--ink-soft);margin-bottom:20px;}
+.plan .price{text-align:center;font-size:15px;color:var(--accent-deep);letter-spacing:0.08em;margin-bottom:20px;}
+.plan .price b{font-size:26px;font-weight:400;}
+.plan ul{flex:1;}
+.plan li{list-style:none;font-size:14px;color:var(--ink-soft);padding:8px 0 8px 24px;position:relative;}
+.plan li::before{content:'';position:absolute;left:4px;top:17px;width:8px;height:8px;border-radius:50%;background:rgba(94,130,184,0.4);}
+
+.room{position:relative;min-height:460px;display:grid;grid-template-columns:1fr 1fr;}
+@media(max-width:820px){.room{grid-template-columns:1fr;}}
+.room-photo{background:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1400&q=75') center/cover;min-height:300px;}
+.room-text{display:flex;flex-direction:column;justify-content:center;padding:70px 7vw;background:linear-gradient(135deg,#F3F6FA,#EEF0F8);}
+.room-text h2{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.8vw,26px);letter-spacing:0.14em;margin-bottom:22px;line-height:2;}
+.room-text p{font-size:15px;color:var(--ink-soft);margin-bottom:14px;}
+
+.faq{max-width:760px;margin:0 auto;}
+.faq details{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--glass-line);border-radius:16px;margin-bottom:14px;overflow:hidden;}
+.faq summary{cursor:pointer;padding:22px 26px;font-size:15px;font-weight:400;letter-spacing:0.06em;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'+';font-size:20px;color:var(--accent);flex-shrink:0;transition:transform .3s;}
+.faq details[open] summary::after{transform:rotate(45deg);}
+.faq .a{padding:0 26px 22px;font-size:14px;color:var(--ink-soft);}
+
+.final{position:relative;min-height:520px;display:flex;align-items:center;justify-content:center;background:url('https://images.unsplash.com/photo-1519750783826-e2420f4d687f?w=2000&q=75') center/cover;}
+.final-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,249,252,0.9),rgba(240,242,250,0.55));}
+.final-card{position:relative;text-align:center;background:rgba(255,255,255,0.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.8);border-radius:28px;padding:60px 8vw;margin:80px 24px;box-shadow:0 20px 60px rgba(120,150,190,0.2);max-width:680px;}
+.final-card h2{font-family:var(--serif);font-weight:400;font-size:clamp(21px,3vw,28px);letter-spacing:0.16em;line-height:2.1;margin-bottom:18px;}
+.final-card p{font-size:15px;color:var(--ink-soft);margin-bottom:36px;}
+
+.footer{background:#EAF0F7;padding:44px 5vw 34px;text-align:center;}
+.footer .logo{margin-bottom:10px;}
+.footer p{font-size:11px;color:var(--ink-faint);letter-spacing:0.1em;}
+
+.hero-note{display:inline-flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.62);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.9);border-radius:18px;padding:18px 30px;margin-bottom:40px;box-shadow:0 10px 32px rgba(120,150,190,0.18);text-align:left;}
+.hero-note svg{flex-shrink:0;margin-top:5px;}
+.hero-note p{font-size:15px;line-height:2;color:var(--ink);}
+.hero-note strong{font-weight:500;color:var(--accent-deep);}
+.sec-cta{text-align:center;margin-top:60px;}
+.sec-cta .hint{font-size:13px;color:var(--ink-soft);margin-top:14px;letter-spacing:0.08em;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;}
+.step{background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--glass-line);border-radius:18px;padding:28px 18px;text-align:center;box-shadow:0 8px 32px rgba(120,150,190,0.10);}
+.step .s-num{width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;font-size:14px;font-weight:500;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.step h3{font-size:15px;font-weight:500;letter-spacing:0.06em;margin-bottom:8px;}
+.step p{font-size:13px;color:var(--ink-soft);line-height:1.9;}
+.counselor{display:flex;gap:18px;align-items:center;margin-top:30px;padding:20px 24px;background:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.85);border-radius:18px;}
+.counselor svg{flex-shrink:0;}
+.c-name{font-size:12px;color:var(--ink-faint);letter-spacing:0.12em;margin-bottom:4px;}
+.c-msg{font-size:14px;line-height:1.9;}
+.fade{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease;}
+.fade.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a class="logo" href="#top">SUKITORU<small>人間関係専門カウンセリング</small></a>
+  <nav class="nav">
+    <a href="#nayami">お悩み</a>
+    <a href="#tokucho">特徴</a>
+    <a href="#plan">料金</a>
+    <a href="#nagare">流れ</a>
+    <a href="#faq">FAQ</a>
+    <a class="cta" href="#contact">ご予約</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-veil"></div>
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-inner">
+    <p class="hero-tag">COUNSELING FOR RELATIONSHIPS</p>
+    <h1>こころが、<br>透きとおるまで。</h1>
+    <p class="hero-lead">断れない。嫌われたくない。いつも自分が悪い気がする。<br>
+    重ねてきた我慢を、ひとつずつほどいていく。<br>
+    感情ではなく「構造」から人間関係を整える、専門カウンセリングです。</p>
+    <div class="hero-note">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M4 13 Q4 5 13 5 Q22 5 22 12 Q22 19 13.5 19 L9 23 L9.8 18.6 Q4 17.5 4 13 Z" fill="none" stroke="#5E82B8" stroke-width="1.8" stroke-linejoin="round"/><circle cx="10" cy="12.5" r="1.1" fill="#5E82B8"/><circle cx="14" cy="12.5" r="1.1" fill="#5E82B8"/><circle cx="18" cy="12.5" r="1.1" fill="#5E82B8"/></svg>
+      <p><strong>話すことが整理されていなくても、大丈夫です。</strong><br>対話の中で、一緒に整理していきましょう。</p>
+    </div>
+    <div>
+      <a class="btn btn-solid" href="#contact">まずは相談してみる</a>
+      <a class="btn btn-glass" href="#tokucho">はじめての方へ</a>
+    </div>
+    <p class="cta-note">オンライン対応｜ご予約は24時間受け付けています</p>
+  </div>
+  <p class="scroll-hint">SCROLL</p>
+</section>
+
+<section id="nayami">
+  <div class="wrap">
+    <p class="sec-tag fade">CHECK</p>
+    <h2 class="sec-title fade">こんなこと、ありませんか</h2>
+    <p class="sec-lead fade">ひとつでも当てはまったら、それは「性格」ではなく「構造」のサインです。</p>
+    <div class="check-grid">
+      <svg class="check-illust fade" viewBox="0 0 340 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="窓辺で膝を抱えて座る人の線画イラスト">
+        <circle cx="240" cy="90" r="70" fill="#EAF2FA"/>
+        <circle cx="80" cy="270" r="52" fill="#F1EDF9"/>
+        <path d="M40 320 Q170 300 300 320" stroke="#D8E2EE" stroke-width="3" fill="none"/>
+        <rect x="196" y="38" width="104" height="128" rx="6" fill="none" stroke="#C3D2E4" stroke-width="2.5"/>
+        <line x1="248" y1="38" x2="248" y2="166" stroke="#C3D2E4" stroke-width="2"/>
+        <line x1="196" y1="102" x2="300" y2="102" stroke="#C3D2E4" stroke-width="2"/>
+        <circle cx="150" cy="150" r="26" fill="none" stroke="#7B8FB0" stroke-width="3"/>
+        <path d="M143 122 Q130 110 137 96 Q155 86 170 98 Q180 112 168 126" fill="none" stroke="#7B8FB0" stroke-width="3" stroke-linecap="round"/>
+        <path d="M150 176 Q148 196 138 210 Q118 222 108 246 Q102 268 112 292" fill="none" stroke="#7B8FB0" stroke-width="3" stroke-linecap="round"/>
+        <path d="M158 208 Q180 218 188 240 Q194 262 186 292" fill="none" stroke="#7B8FB0" stroke-width="3" stroke-linecap="round"/>
+        <path d="M112 292 Q150 282 186 292" fill="none" stroke="#7B8FB0" stroke-width="3" stroke-linecap="round"/>
+        <path d="M138 210 Q160 202 158 208 Q172 224 164 244" fill="none" stroke="#A5B4CC" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="141" cy="148" r="2" fill="#7B8FB0"/>
+        <path d="M148 160 Q152 163 156 160" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M262 200 L262 186 M278 214 L290 208 M270 206 L280 196" stroke="#C4B5EB" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <div class="check-list">
+        <div class="check-item fade">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="none" stroke="#5E82B8" stroke-width="1.6"/><path d="M6 10.5 L9 13 L14 7.5" fill="none" stroke="#5E82B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>頼まれると断れず、あとでどっと疲れてしまう</p>
+        </div>
+        <div class="check-item fade">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="none" stroke="#5E82B8" stroke-width="1.6"/><path d="M6 10.5 L9 13 L14 7.5" fill="none" stroke="#5E82B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>相手の機嫌に一日中、気持ちが左右される</p>
+        </div>
+        <div class="check-item fade">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="none" stroke="#5E82B8" stroke-width="1.6"/><path d="M6 10.5 L9 13 L14 7.5" fill="none" stroke="#5E82B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>自分の気持ちがいつも後回しになっている</p>
+        </div>
+        <div class="check-item fade">
+          <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="none" stroke="#5E82B8" stroke-width="1.6"/><path d="M6 10.5 L9 13 L14 7.5" fill="none" stroke="#5E82B8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <p>気づけばいつも「疲れる関係」に巻き込まれている</p>
+        </div>
+      </div>
+    </div>
+    <p class="check-note fade">それはあなたが弱いからでも、優しすぎるからでもありません。<br>
+    <strong>関係の「構造」が、あなたを消耗させる形になっているだけ</strong>です。</p>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="quote-veil"></div>
+  <div class="quote-card fade">
+    <p>がんばっているのに、<br>どうして疲れてしまうんだろう。</p>
+  </div>
+</section>
+
+<section class="bg-tint" id="tokucho">
+  <div class="wrap">
+    <p class="sec-tag fade">FEATURES</p>
+    <h2 class="sec-title fade">このカウンセリングの特徴</h2>
+    <p class="sec-lead fade">一時的な癒しではなく、繰り返さないための「設計」をします。</p>
+    <div class="feature-grid">
+      <div class="feature fade">
+        <p class="num">01</p>
+        <svg width="90" height="90" viewBox="0 0 90 90" role="img" aria-label="もつれた糸がほどけてハートになるイラスト"><circle cx="45" cy="45" r="34" fill="#EAF2FA"/><path d="M16 52 C20 40 32 38 30 46 C28 54 19 52 23 44 C26 37 36 35 39 42 C42 49 50 54 58 49 C63 45 67 42 71 40" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/><path d="M74 43 L70.5 39.5 Q68.5 37 70.8 35.8 Q72.8 34.8 74 36.8 Q75.2 34.8 77.2 35.8 Q79.5 37 77.5 39.5 Z" fill="#F4C0D1"/></svg>
+        <h3>感情ではなく<span style="white-space:nowrap">「構造」</span>に焦点</h3>
+        <p>つらさの原因を性格や気の持ちようにせず、関係のしくみとして客観的に分析します。</p>
+      </div>
+      <div class="feature fade">
+        <p class="num">02</p>
+        <svg width="90" height="90" viewBox="0 0 90 90" role="img" aria-label="繰り返しのループから一歩踏み出す人のイラスト"><circle cx="45" cy="45" r="34" fill="#F1EDF9"/><path d="M52 36 A16 16 0 1 0 52 58" fill="none" stroke="#A5B4CC" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/><circle cx="63" cy="40" r="5" fill="none" stroke="#7B8FB0" stroke-width="2.2"/><circle cx="61.5" cy="39.5" r="0.9" fill="#7B8FB0"/><circle cx="64.5" cy="39.5" r="0.9" fill="#7B8FB0"/><path d="M61.5 42 Q63 43.5 64.5 42" fill="none" stroke="#7B8FB0" stroke-width="1.5" stroke-linecap="round"/><path d="M63 45 L61 55 M61 55 L56 64 M61 55 L66 63 M62.5 48 L56 51 M62.5 48 L69 49" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/><path d="M73 30 V24 M76 33 L81 31 M75 26 L79 22" stroke="#C4B5EB" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <h3>悩みを<span style="white-space:nowrap">「パターン」</span>として扱う</h3>
+        <p>職場でも家庭でも繰り返される消耗のパターンを見つけ、根本から扱います。</p>
+      </div>
+      <div class="feature fade">
+        <p class="num">03</p>
+        <svg width="90" height="90" viewBox="0 0 90 90" role="img" aria-label="心地よい距離で向き合うふたりのイラスト"><circle cx="45" cy="45" r="34" fill="#FBECF2"/><circle cx="31" cy="38" r="6" fill="none" stroke="#7B8FB0" stroke-width="2.2"/><circle cx="29" cy="37.5" r="1" fill="#7B8FB0"/><circle cx="33" cy="37.5" r="1" fill="#7B8FB0"/><path d="M29 41 Q31 43 33 41" fill="none" stroke="#7B8FB0" stroke-width="1.5" stroke-linecap="round"/><path d="M22 62 Q24 48 31 48 Q38 48 40 62" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/><circle cx="59" cy="38" r="6" fill="none" stroke="#7B8FB0" stroke-width="2.2"/><circle cx="57" cy="37.5" r="1" fill="#7B8FB0"/><circle cx="61" cy="37.5" r="1" fill="#7B8FB0"/><path d="M57 41 Q59 43 61 41" fill="none" stroke="#7B8FB0" stroke-width="1.5" stroke-linecap="round"/><path d="M50 62 Q52 48 59 48 Q66 48 68 62" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/><path d="M45 32 V62" stroke="#C4B5EB" stroke-width="1.8" stroke-dasharray="2 5" stroke-linecap="round"/><path d="M45 27 L42.5 24.5 Q41 22.5 42.8 21.6 Q44.3 21 45 22.5 Q45.7 21 47.2 21.6 Q49 22.5 47.5 24.5 Z" fill="#F4C0D1"/></svg>
+        <h3>優しさより<span style="white-space:nowrap">「境界線の再設計」</span></h3>
+        <p>我慢や譲歩ではなく、あなたと相手の間に健全な線を引き直すことを優先します。</p>
+      </div>
+      <div class="feature fade">
+        <p class="num">04</p>
+        <svg width="90" height="90" viewBox="0 0 90 90" role="img" aria-label="両手に包まれて育つ小さな芽のイラスト"><circle cx="45" cy="45" r="34" fill="#E4F4ED"/><path d="M45 60 V45" fill="none" stroke="#5FA98A" stroke-width="2.2" stroke-linecap="round"/><path d="M45 48 Q36 47 33 38 Q43 37 45 46 Z" fill="#C9EBDD" stroke="#5FA98A" stroke-width="1.8" stroke-linejoin="round"/><path d="M45 44 Q54 43 57 34 Q47 33 45 42 Z" fill="#C9EBDD" stroke="#5FA98A" stroke-width="1.8" stroke-linejoin="round"/><path d="M26 60 Q33 70 45 70 Q57 70 64 60" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/><path d="M26 60 Q29 55 34 56 M64 60 Q61 55 56 56" fill="none" stroke="#7B8FB0" stroke-width="2" stroke-linecap="round"/><circle cx="58" cy="28" r="1.2" fill="#5FA98A"/><circle cx="33" cy="31" r="1" fill="#5FA98A"/></svg>
+        <h3>再発しないための<span style="white-space:nowrap">「防止設計」</span></h3>
+        <p>その場の安心で終わらせず、同じ悩みに戻らないしくみづくりまで伴走します。</p>
+      </div>
+    </div>
+    <div class="sec-cta fade">
+      <a class="btn btn-solid" href="#contact">まずは相談してみる</a>
+      <p class="hint">無理な継続のおすすめはいたしません</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="sec-tag fade">BEFORE / AFTER</p>
+    <h2 class="sec-title fade">カウンセリングで、こう変わる</h2>
+    <p class="sec-lead fade">目指すのは「我慢できる自分」ではなく、「消耗しない関係」です。</p>
+    <div class="ba-grid">
+      <div class="ba-col ba-before fade">
+        <h3>BEFORE</h3>
+        <ul>
+          <li>人間関係でいつも消耗する</li>
+          <li>自分の感情が分からない</li>
+          <li>嫌でも断れない</li>
+          <li>自己否定が当たり前になっている</li>
+        </ul>
+      </div>
+      <div class="ba-arrow fade">
+        <svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 20 H30 M23 12 L31 20 L23 28" fill="none" stroke="#5E82B8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ba-col ba-after fade">
+        <h3>AFTER</h3>
+        <ul>
+          <li>適切な距離感が取れる</li>
+          <li>自分の感情が判断の基準になる</li>
+          <li>NOが自然に言える</li>
+          <li>関係性が整理され、軽くなる</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sec-cta fade">
+      <a class="btn btn-solid" href="#contact">今の状況を整理してみる</a>
+    </div>
+  </div>
+</section>
+
+<section class="bg-tint" id="plan">
+  <div class="wrap">
+    <p class="sec-tag fade">SESSION / PRICE</p>
+    <h2 class="sec-title fade">セッションと料金</h2>
+    <p class="sec-lead fade">まずは単発の「構造分析」から。無理な継続のおすすめはしません。</p>
+    <div class="plan-grid">
+      <div class="plan fade">
+        <p class="step">STEP 1</p>
+        <h3>構造分析セッション</h3>
+        <p class="sub">単発 / 90分</p>
+        <p class="price"><b>8,800</b> 円（税込）</p>
+        <ul>
+          <li>いまの人間関係の全体像を整理</li>
+          <li>消耗パターンの特定</li>
+          <li>今後の方針のご提案</li>
+        </ul>
+      </div>
+      <div class="plan em fade">
+        <p class="badge">いちばん選ばれています</p>
+        <p class="step">STEP 2</p>
+        <h3>継続セッション</h3>
+        <p class="sub">3〜6回 / 各60分</p>
+        <p class="price"><b>33,000</b> 円〜（税込）</p>
+        <ul>
+          <li>境界線トレーニング</li>
+          <li>思考パターンの修正</li>
+          <li>感情認識の再構築</li>
+        </ul>
+      </div>
+      <div class="plan fade">
+        <p class="step">STEP 3</p>
+        <h3>集中プログラム</h3>
+        <p class="sub">8〜12回 / 各60分</p>
+        <p class="price">お問い合わせください</p>
+        <ul>
+          <li>人間関係再構築プロジェクト</li>
+          <li>生活全体の関係マップを再設計</li>
+          <li>再発防止プランの作成</li>
+        </ul>
+      </div>
+    </div>
+    <div class="sec-cta fade">
+      <a class="btn btn-solid" href="#contact">まずは90分、話してみる</a>
+      <p class="hint">ご予約は24時間受付｜オンライン対応</p>
+    </div>
+  </div>
+</section>
+
+<section id="nagare">
+  <div class="wrap">
+    <p class="sec-tag fade">FLOW</p>
+    <h2 class="sec-title fade">ご利用の流れ</h2>
+    <p class="sec-lead fade">お申込みから当日まで、すべてオンラインで完結します。準備するものはありません。</p>
+    <div class="steps">
+      <div class="step fade">
+        <p class="s-num">1</p>
+        <h3>お申込み</h3>
+        <p>予約フォームから、ご希望の日時を選ぶだけ。その場で予約が確定します。</p>
+      </div>
+      <div class="step fade">
+        <p class="s-num">2</p>
+        <h3>ご案内メール</h3>
+        <p>ビデオ通話のURLとお支払いのご案内が届きます。事前の準備は不要です。</p>
+      </div>
+      <div class="step fade">
+        <p class="s-num">3</p>
+        <h3>当日セッション</h3>
+        <p>リラックスできる場所からご参加ください。カメラオフでも大丈夫です。</p>
+      </div>
+      <div class="step fade">
+        <p class="s-num">4</p>
+        <h3>セッション後</h3>
+        <p>お話の整理メモをお渡しします。継続するかどうかは、ゆっくりお決めください。</p>
+      </div>
+    </div>
+    <div class="sec-cta fade">
+      <a class="btn btn-solid" href="#contact">まずは相談してみる</a>
+    </div>
+  </div>
+</section>
+
+<section class="room">
+  <div class="room-photo"></div>
+  <div class="room-text">
+    <h2 class="fade">オンラインで、<br>どこからでも。</h2>
+    <p class="fade">セッションはすべてオンライン（ビデオ通話）で行います。カメラオフでのご参加も可能です。</p>
+    <p class="fade">「話がまとまっていなくても大丈夫かな」——大丈夫です。まとまっていない状態から一緒に整理するのが、このカウンセリングの仕事です。</p>
+    <div class="counselor fade">
+      <svg width="72" height="72" viewBox="0 0 72 72" role="img" aria-label="カウンセラーのイラスト"><circle cx="36" cy="36" r="36" fill="#EAF2FA"/><circle cx="36" cy="30" r="11" fill="none" stroke="#7B8FB0" stroke-width="2.2"/><path d="M16 62 Q20 46 36 46 Q52 46 56 62" fill="none" stroke="#7B8FB0" stroke-width="2.2" stroke-linecap="round"/><circle cx="32" cy="29" r="1.3" fill="#7B8FB0"/><circle cx="40" cy="29" r="1.3" fill="#7B8FB0"/><path d="M32 34 Q36 37 40 34" fill="none" stroke="#7B8FB0" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <div>
+        <p class="c-name">担当カウンセラーより</p>
+        <p class="c-msg">「うまく話せるかな」と心配な方こそ、歓迎です。沈黙もためらいも、そのままで大丈夫。ゆっくりお話ししましょう。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <p class="sec-tag fade">FAQ</p>
+    <h2 class="sec-title fade">よくあるご質問</h2>
+    <p class="sec-lead fade">はじめての方が不安に感じやすいことをまとめました。</p>
+    <div class="faq">
+      <details class="fade">
+        <summary>カウンセリングを受けるのは初めてで、少し怖いです。</summary>
+        <p class="a">初めての方がほとんどです。無理に深い話をしていただく必要はなく、話せる範囲のことから、いまの状況を一緒に整理していきます。</p>
+      </details>
+      <details class="fade">
+        <summary>うまく話せる自信がありません。</summary>
+        <p class="a">問題ありません。「何がつらいのか自分でも分からない」状態こそ、構造分析の出番です。こちらから質問しながら整理していくので、準備は不要です。</p>
+      </details>
+      <details class="fade">
+        <summary>1回だけの利用でも大丈夫ですか？</summary>
+        <p class="a">もちろんです。単発の構造分析セッションだけでも、消耗の原因が見えるだけで楽になる方が多くいらっしゃいます。継続を無理におすすめすることはありません。</p>
+      </details>
+      <details class="fade">
+        <summary>医療機関との違いは何ですか？</summary>
+        <p class="a">当ルームは医療機関ではなく、診断や治療は行いません。通院中の方は主治医にご相談のうえご利用ください。人間関係の整理と再設計に特化した対話の場です。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contact">
+  <div class="final-veil"></div>
+  <div class="final-card fade">
+    <h2>その優しさを、<br>すり減らさない生き方へ。</h2>
+    <p>まずは90分、いまの人間関係を一緒に見わたしてみませんか。<br>ご予約は下のボタンから、24時間受け付けています。</p>
+    <a class="btn btn-solid" href="#" onclick="alert('ここに予約フォーム（Googleフォーム等）のリンクが入ります');return false;">初回セッションを予約する</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="logo">SUKITORU<small>人間関係専門カウンセリング</small></p>
+  <p>&copy; 2026 SUKITORU counseling room</p>
+</footer>
+
+<script>
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
